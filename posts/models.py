@@ -1,3 +1,4 @@
+"""Models for posts app"""
 from django.db import models
 from django.urls import reverse
 
@@ -9,6 +10,7 @@ class Post(models.Model):
     description = models.TextField(default="", max_length=600)
     content = models.TextField(default="")
 
+    # pylint: disable=missing-docstring
     def __str__(self):
         return self.title
 
@@ -24,5 +26,6 @@ class Tag(models.Model):
     def __str__(self):
         return self.name
 
+    # pylint: disable=missing-docstring
     def get_absolute_url(self):
         return reverse("tag_detail", kwargs={"pk": self.pk})
