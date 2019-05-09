@@ -82,7 +82,23 @@ class TagListPageTests(TestCase):
         self.assertContains(response, "test tag")
 
 class TagDetailPageTests(TestCase):
-    pass
+    "Test tag detail page"
+
+    @classmethod
+    def setUpTestData(cls):
+        Tag.objects.create(name="test tag")
+
+    def setUp(self):
+        self.tag = Tag.objects.get(id=1)
+
+    def test_tag_detail_template(self):
+        response = self.client.get(f"/posts/tags/id/{self.tag.id}/")
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, "posts/tag_detail.html")
+
+    def test_tag_detail_page_displays_tags(self):
+        response = self.client.get(f"/posts/tags/id/{self.tag.id}/")
+        self.assertContains(response, "test tag")
 
 
 class AboutPageTests(TestCase):

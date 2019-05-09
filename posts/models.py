@@ -21,7 +21,7 @@ class Post(models.Model):
 class Tag(models.Model):
     """Creates a Tag model"""
 
-    name = models.CharField(max_length=20, verbose_name="tag_name")
+    name = models.CharField(max_length=20, verbose_name="tag name")
 
     def __str__(self):
         return self.name
