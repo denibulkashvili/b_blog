@@ -2,14 +2,14 @@ from django.test import TestCase
 from django.urls import reverse
 
 from posts import views
-from posts.models import Post, Tag
+# from posts.models import Post, Tag
 
 
 class HomePageTests(TestCase):
     """Tests home page"""
 
-    def setUp(self):
-        self.post = Post.objects.create(title="Test")
+    # def setUp(self):
+    #     self.post = Post.objects.create(title="Test")
 
     def test_home_page_status_code(self):
         response = self.client.get("/")
@@ -29,7 +29,11 @@ class HomePageTests(TestCase):
 
 
 class PostListPageTests(TestCase):
-    pass
+    """Test post list view"""
+    def test_post_list_template(self):
+        response = self.client.get(reverse("posts:post_list"))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, "posts/post_list.html")
 
 
 class PostDetailPageTests(TestCase):
