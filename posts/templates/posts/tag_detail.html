@@ -5,5 +5,11 @@
 
 {% block content %}
   <h3 class="tag-name">{{ tag.name }}</h3>
-  <div class="tag-posts"> tag.posts </div>
+  <div class="tag-posts">
+    {% for post in posts %}
+      <h3><a href="{% url 'posts:post_detail' pk=post.id %}">{{ post.title }}</a></h3>
+    {% empty %}
+      <p>No related posts</p>
+    {% endfor %}
+  </div>
 {% endblock %}

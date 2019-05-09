@@ -34,3 +34,8 @@ class TagDetailView(DetailView):
 
     model = Tag
     template_name = "posts/tag_detail.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(TagDetailView, self).get_context_data(**kwargs)
+        context["posts"] = self.object.posts.all()
+        return context

@@ -7,7 +7,7 @@
   <h3 class="post-title">{{ post.title }}</h3>
   <ul>
     {% for tag in tags %}
-      <li>{{ tag.name }}</li>
+      <li><a href="{% url 'posts:tag_detail' pk=tag.id %}">{{ tag.name }}</a></li>
     {% empty %}
       <li>No tags</li>
     {% endfor %}

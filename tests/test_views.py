@@ -110,6 +110,16 @@ class TagDetailPageTests(TestCase):
         response = self.client.get(f"/posts/tags/id/{self.tag.id}/")
         self.assertContains(response, "test tag")
 
+    def test_tag_detail_view_diplays_related_posts(self):
+        self.post1 = Post.objects.create(title="Test related posts - Main post")
+        self.post2 = Post.objects.create(title="Test related posts - Secondary post")
+        self.post1.tags.add(self.tag)
+        self.post2.tags.add(self.tag)
+        response = self.client.get(f"/posts/tags/id/{self.tag.id}/")
+        self.assertContains(response, "Main post")
+        self.assertContains(response, "Secondary post")
+
+
 
 class AboutPageTests(TestCase):
     """Tests About page"""
