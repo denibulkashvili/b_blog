@@ -35,4 +35,11 @@ class TagListPageTests(TestCase):
     pass
 
 class AboutPageTests(TestCase):
-    pass
+    """Tests About page"""
+    def test_view_uses_correct_template(self):
+        response = self.client.get(reverse("about"))
+        self.assertTemplateUsed(response, "about.html")
+
+    def test_home_page_contains_correct_header(self):
+        response = self.client.get(reverse("about"))
+        self.assertContains(response, "<h1>About</h1>")
