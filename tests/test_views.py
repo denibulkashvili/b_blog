@@ -68,6 +68,20 @@ class PostDetailPageTests(TestCase):
 
 
 class TagListPageTests(TestCase):
+    """Test tag list view"""
+    def setUp(self):
+        self.tag = Tag.objects.create(name="test tag")
+
+    def test_tag_list_template(self):
+        response = self.client.get(reverse("posts:tag_list"))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, "posts/tag_list.html")
+
+    def test_post_list_page_renders_posts(self):
+        response = self.client.get(reverse("posts:tag_list"))
+        self.assertContains(response, "test tag")
+
+class TagDetailPageTests(TestCase):
     pass
 
 
