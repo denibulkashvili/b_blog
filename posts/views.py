@@ -15,3 +15,17 @@ class PostDetailView(DetailView): # pylint: disable=too-many-ancestors
 
     model = Post
     template_name = "posts/post_detail.html"
+
+
+class TagListView(ListView):
+    """Creates tag list view"""
+
+    model = Tag
+    template_name = "posts/tag_list.html"
+
+
+class TagDetailView(DetailView):
+    """Creates tag detail view"""
+
+    model = Tag
+    template_name = "posts/tag_detail.html"

@@ -11,7 +11,7 @@ class PostTestCase(TestCase):
         self.post = Post.objects.get(id=1)
 
     def test_get_absolute_url(self):
-        self.assertEquals(self.post.get_absolute_url(), "/posts/1/")
+        self.assertEquals(self.post.get_absolute_url(), "/posts/id/1/")
 
     def test_title_field(self):
         field_label = self.post._meta.get_field("title").verbose_name

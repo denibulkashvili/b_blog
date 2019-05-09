@@ -56,12 +56,12 @@ class PostDetailPageTests(TestCase):
         self.post = Post.objects.get(id=1)
 
     def test_post_detail_template(self):
-        response = self.client.get("/posts/1/")
+        response = self.client.get(f"/posts/id/{self.post.id}/")
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "posts/post_detail.html")
 
     def test_post_detail_page_displays_post_details(self):
-        response = self.client.get("/posts/1/")
+        response = self.client.get(f"/posts/id/{self.post.id}/")
         self.assertContains(response, "Hello World")
         self.assertContains(response, "Descriptions: Test post")
         self.assertContains(response, "Content: This is a test post.")

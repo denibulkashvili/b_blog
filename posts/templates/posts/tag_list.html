@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %} - All Tags{% endblock %}
+
+{% block content %}
+  {% for tag in tag_list %}
+    <h3>{{ tag.name }}</h3>
+  {% empty %}
+    <p>No tags yet.</p>
+  {% endfor %}
+{% endblock %}
