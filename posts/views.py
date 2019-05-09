@@ -16,6 +16,11 @@ class PostDetailView(DetailView):  # pylint: disable=too-many-ancestors
     model = Post
     template_name = "posts/post_detail.html"
 
+    def get_context_data(self, **kwargs):
+        context = super(PostDetailView, self).get_context_data(**kwargs)
+        context["tags"] = self.object.tags.all()
+        return context
+
 
 class TagListView(ListView):
     """Creates tag list view"""

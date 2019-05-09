@@ -66,6 +66,14 @@ class PostDetailPageTests(TestCase):
         self.assertContains(response, "Descriptions: Test post")
         self.assertContains(response, "Content: This is a test post.")
 
+    def test_post_detail_view_displays_list_of_related_tags(self):
+        tag1 = Tag.objects.create(name="tag 1")
+        tag2 = Tag.objects.create(name="tag 2")
+        self.post.tags.add(tag1)
+        self.post.tags.add(tag2)
+        response = self.client.get(f"/posts/id/{self.post.id}/")
+        self.assertContains(response, "tag 1")
+        self.assertContains(response, "tag 2")
 
 class TagListPageTests(TestCase):
     """Test tag list view"""

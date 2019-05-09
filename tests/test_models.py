@@ -29,6 +29,15 @@ class PostTestCase(TestCase):
         field_label = self.post._meta.get_field("content").verbose_name
         self.assertEqual(field_label, "content")
 
+    def test_post_tags_field(self):
+        field_label = self.post._meta.get_field("tags").verbose_name
+        self.assertEqual(field_label, "tags")
+
+    def test_post_can_query_tags_through_tags_field(self):
+        tag = Tag.objects.create(name="test tag")
+        self.post.tags.add(tag)
+        self.assertEqual(self.post.tags.get(id=1), tag)
+
 
 class TagTestCase(TestCase):
     @classmethod
@@ -40,6 +49,6 @@ class TagTestCase(TestCase):
 
     def test_name_field(self):
         field_label = self.tag._meta.get_field("name").verbose_name
-        self.assertEqual(field_label, "tag_name")
+        self.assertEqual(field_label, "tag name")
         max_length = self.tag._meta.get_field("name").max_length
         self.assertEqual(max_length, 20)

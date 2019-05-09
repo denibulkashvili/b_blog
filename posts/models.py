@@ -9,6 +9,9 @@ class Post(models.Model):
     title = models.CharField(max_length=200, verbose_name="post_title")
     description = models.TextField(default="", max_length=600)
     content = models.TextField(default="")
+    tags = models.ManyToManyField(
+        "Tag", related_name="posts" 
+    )
 
     # pylint: disable=missing-docstring
     def __str__(self):

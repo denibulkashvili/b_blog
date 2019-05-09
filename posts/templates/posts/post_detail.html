@@ -5,6 +5,13 @@
 
 {% block content %}
   <h3 class="post-title">{{ post.title }}</h3>
+  <ul>
+    {% for tag in tags %}
+      <li>{{ tag.name }}</li>
+    {% empty %}
+      <li>No tags</li>
+    {% endfor %}
+  </ul>
   <div class="post-description">{{ post.description }}</div>
   <div class="post-content">{{ post.content }}</div>
 {% endblock %}
