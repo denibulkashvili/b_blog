@@ -22,5 +22,5 @@ urlpatterns = [
     path("laoban/", admin.site.urls),
     path("", views.HomePageView.as_view(), name="home"),
     path("about/", views.AboutPageView.as_view(), name="about"),
-    path("posts/" ,include("posts.urls", namespace="posts")),
+    path("posts/", include("posts.urls", namespace="posts")),
 ]

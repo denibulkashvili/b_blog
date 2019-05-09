@@ -27,6 +27,7 @@ class HomePageTests(TestCase):
 
 class PostListPageTests(TestCase):
     """Test post list view"""
+
     def setUp(self):
         self.post = Post.objects.create(title="Test")
 
@@ -42,16 +43,17 @@ class PostListPageTests(TestCase):
 
 class PostDetailPageTests(TestCase):
     """Test post detail view"""
+
     @classmethod
     def setUpTestData(cls):
         Post.objects.create(
             title="Hello World!",
             description="Descriptions: Test post",
-            content="Content: This is a test post."
+            content="Content: This is a test post.",
         )
 
     def setUp(self):
-        self.post = Post.objects.get(id=1)        
+        self.post = Post.objects.get(id=1)
 
     def test_post_detail_template(self):
         response = self.client.get("/posts/1/")
@@ -63,6 +65,7 @@ class PostDetailPageTests(TestCase):
         self.assertContains(response, "Hello World")
         self.assertContains(response, "Descriptions: Test post")
         self.assertContains(response, "Content: This is a test post.")
+
 
 class TagListPageTests(TestCase):
     pass
