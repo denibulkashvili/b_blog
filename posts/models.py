@@ -5,6 +5,8 @@ from django.urls import reverse
 class Post(models.Model):
     """Creates a Post model"""
     title = models.CharField(max_length=200, verbose_name="post_title")
+    description = models.TextField(default="", max_length=600)
+    content = models.TextField(default="")
 
     def __str__(self):
         return self.title
