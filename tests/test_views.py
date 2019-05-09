@@ -36,7 +36,8 @@ class PostListPageTests(TestCase):
         self.assertTemplateUsed(response, "posts/post_list.html")
 
     def test_post_list_page_renders_posts(self):
-        pass
+        response = self.client.get(reverse("posts:post_list"))
+        self.assertContains(response, "Test")
 
 
 class PostDetailPageTests(TestCase):

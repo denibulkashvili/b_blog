@@ -3,5 +3,9 @@
 {% block title %} - All Posts{% endblock %}
 
 {% block content %}
-  <div>All posts</div>
+  {% for post in post_list %}
+    <h3>{{ post.title }}</h3>
+  {% empty %}
+    <p>No posts yet.</p>
+  {% endfor %}
 {% endblock %}
