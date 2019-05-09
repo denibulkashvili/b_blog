@@ -19,7 +19,7 @@ from . import views
 
 # pylint: disable=invalid-name
 urlpatterns = [
-    path("admin/", admin.site.urls),
+    path("laoban/", admin.site.urls),
     path("", views.HomePageView.as_view(), name="home"),
     path("about/", views.AboutPageView.as_view(), name="about"),
     path("posts/" ,include("posts.urls", namespace="posts")),

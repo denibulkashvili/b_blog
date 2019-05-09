@@ -7,4 +7,9 @@ from .models import Post, Tag
 class PostListView(ListView):
     """Creates post list view"""
     model = Post
-    template_name = "post_list.html"
+    template_name = "posts/post_list.html"
+
+class PostDetailView(DetailView):
+    """Create post detail view"""
+    model = Post
+    template_name = "posts/post_detail.html"
