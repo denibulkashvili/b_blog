@@ -1,6 +1,8 @@
+"""Urlconf for posts app"""
 from django.urls import path
 from . import views
 
+# pylint:disable=invalid-name
 app_name = "posts"
 
 urlpatterns = [
