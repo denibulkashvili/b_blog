@@ -69,6 +69,7 @@ class PostDetailPageTests(TestCase):
 
 class TagListPageTests(TestCase):
     """Test tag list view"""
+
     def setUp(self):
         self.tag = Tag.objects.create(name="test tag")
 
@@ -80,6 +81,7 @@ class TagListPageTests(TestCase):
     def test_post_list_page_renders_posts(self):
         response = self.client.get(reverse("posts:tag_list"))
         self.assertContains(response, "test tag")
+
 
 class TagDetailPageTests(TestCase):
     "Test tag detail page"
