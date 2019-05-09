@@ -5,14 +5,12 @@ from django.db import migrations, models
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('posts', '0002_post_content'),
-    ]
+    dependencies = [("posts", "0002_post_content")]
 
     operations = [
         migrations.AddField(
-            model_name='post',
-            name='descriptions',
-            field=models.TextField(default='', max_length=600),
-        ),
+            model_name="post",
+            name="descriptions",
+            field=models.TextField(default="", max_length=600),
+        )
     ]

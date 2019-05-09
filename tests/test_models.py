@@ -1,6 +1,7 @@
 from django.test import TestCase
 from posts.models import Post, Tag
 
+
 class PostTestCase(TestCase):
     @classmethod
     def setUpTestData(cls):

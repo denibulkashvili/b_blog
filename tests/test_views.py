@@ -4,8 +4,10 @@ from django.urls import reverse
 from posts import views
 from posts.models import Post, Tag
 
+
 class HomePageTests(TestCase):
     """Tests home page"""
+
     def setUp(self):
         self.post = Post.objects.create(title="Test")
 
@@ -25,17 +27,22 @@ class HomePageTests(TestCase):
         response = self.client.get(reverse("home"))
         self.assertContains(response, "<h2>Test</h2>")
 
+
 class PostListPageTests(TestCase):
     pass
+
 
 class PostDetailPageTests(TestCase):
     pass
 
+
 class TagListPageTests(TestCase):
     pass
 
+
 class AboutPageTests(TestCase):
     """Tests About page"""
+
     def test_view_uses_correct_template(self):
         response = self.client.get(reverse("about"))
         self.assertTemplateUsed(response, "about.html")
