@@ -50,6 +50,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "posts",
+    "imagekit",
+    'markdownify',
 ]
 
 MIDDLEWARE = [
@@ -126,3 +128,11 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 STATICFILESDIR = [os.path.join(BASE_DIR, "static")]
+
+# Media files
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+
+
+# Mardownify settings
+MARKDOWNIFY_BLEACH = False
