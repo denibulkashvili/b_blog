@@ -5,8 +5,8 @@
 {% block content %}
   {% for post in post_list %}
     <div class="post-list-item">
-      <h3><a href="{% url 'posts:post_detail' pk=post.id %}">{{ post.title }}</a></h3>
-      <a href="{% url 'posts:post_detail' pk=post.id %}"><img src="{{ post.cover_thumbnail.url }}" /></a>
+      <h3><a href="{% url 'posts:post_detail' slug=post.slug %}">{{ post.title }}</a></h3>
+      <a href="{% url 'posts:post_detail' slug=post.slug %}"><img src="{{ post.cover_thumbnail.url }}" /></a>
     </div>
   {% empty %}
     <p>No posts yet.</p>

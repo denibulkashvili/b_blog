@@ -6,8 +6,8 @@ from . import views
 app_name = "posts"
 
 urlpatterns = [
-    path("", views.PostListView.as_view(), name="post_list"),
-    path("id/<pk>/", views.PostDetailView.as_view(), name="post_detail"),
+    path("all", views.PostListView.as_view(), name="post_list"),
+    path("read/<slug:slug>/", views.PostDetailView.as_view(), name="post_detail"),
     path("tags/", views.TagListView.as_view(), name="tag_list"),
-    path("tags/id/<pk>/", views.TagDetailView.as_view(), name="tag_detail"),
+    path("tag/<slug:slug>/", views.TagDetailView.as_view(), name="tag_detail"),
 ]

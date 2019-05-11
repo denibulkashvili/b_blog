@@ -1,7 +1,8 @@
 """Models for posts app"""
+import uuid
+from datetime import date
 from django.db import models
 from django.urls import reverse
-from datetime import date
 from django.utils.text import slugify
 from imagekit.models import ImageSpecField
 from imagekit.processors import ResizeToFill
@@ -23,15 +24,16 @@ class Post(models.Model):
         format="JPEG",
         options={"quality": 60},
     )
+    slug = models.SlugField(unique=True, default=uuid.uuid1)
 
     # pylint: disable=missing-docstring
     def __str__(self):
         return self.title
 
     def get_absolute_url(self):
-        return reverse("posts:post_detail", kwargs={"pk": self.pk})
+        return reverse("posts:post_detail", kwargs={"slug": self.slug})
 
-    def save(self, *args, **kwargs):
+    def save(self, *args, **kwargs):  # pylint:disable=arguments-differ
         self.slug = slugify(self.title)
         super(Post, self).save(*args, **kwargs)  # Call the real save() method
 
@@ -43,13 +45,18 @@ class Tag(models.Model):
     """Creates a Tag model"""
 
     name = models.CharField(max_length=20, verbose_name="tag name")
+    slug = models.SlugField(unique=True, default=uuid.uuid1)
 
     def __str__(self):
         return self.name
 
+    def save(self, *args, **kwargs):  # pylint:disable=arguments-differ
+        self.slug = slugify(self.name)
+        super(Tag, self).save(*args, **kwargs)  # Call the real save() method
+
     # pylint: disable=missing-docstring
     def get_absolute_url(self):
-        return reverse("tag_detail", kwargs={"pk": self.pk})
+        return reverse("tag_detail", kwargs={"slug": self.slug})
 
     class Meta:
         ordering = ["name"]
