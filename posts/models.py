@@ -13,17 +13,16 @@ class Post(models.Model):
     title = models.CharField(max_length=200, verbose_name="post_title")
     description = models.TextField(default="", max_length=600)
     content = models.TextField(blank=True, default="")
-    tags = models.ManyToManyField(
-        "Tag", related_name="posts" 
-    )
+    tags = models.ManyToManyField("Tag", related_name="posts")
     date_created = models.DateField(default=date.today)
     is_featured = models.BooleanField(default=False)
     cover = models.ImageField(upload_to="covers/", default="covers/default.jpg")
-    cover_thumbnail = ImageSpecField(source='cover',
-                                      processors=[ResizeToFill(100, 50)],
-                                      format='JPEG',
-                                      options={'quality': 60})
-    
+    cover_thumbnail = ImageSpecField(
+        source="cover",
+        processors=[ResizeToFill(100, 50)],
+        format="JPEG",
+        options={"quality": 60},
+    )
 
     # pylint: disable=missing-docstring
     def __str__(self):
@@ -31,10 +30,10 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return reverse("posts:post_detail", kwargs={"pk": self.pk})
-    
+
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
-        super(Post, self).save(*args, **kwargs) # Call the real save() method
+        super(Post, self).save(*args, **kwargs)  # Call the real save() method
 
     class Meta:
         ordering = ["-date_created"]

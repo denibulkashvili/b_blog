@@ -5,13 +5,6 @@ from django.db import migrations
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('posts', '0007_auto_20190510_1603'),
-    ]
+    dependencies = [("posts", "0007_auto_20190510_1603")]
 
-    operations = [
-        migrations.RemoveField(
-            model_name='post',
-            name='content_html',
-        ),
-    ]
+    operations = [migrations.RemoveField(model_name="post", name="content_html")]

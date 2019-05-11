@@ -75,6 +75,7 @@ class PostDetailPageTests(TestCase):
         self.assertContains(response, "tag 1")
         self.assertContains(response, "tag 2")
 
+
 class TagListPageTests(TestCase):
     """Test tag list view"""
 
@@ -118,7 +119,6 @@ class TagDetailPageTests(TestCase):
         response = self.client.get(f"/posts/tags/id/{self.tag.id}/")
         self.assertContains(response, "Main post")
         self.assertContains(response, "Secondary post")
-
 
 
 class AboutPageTests(TestCase):

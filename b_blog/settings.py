@@ -51,7 +51,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "posts",
     "imagekit",
-    'markdownify',
+    "markdownify",
 ]
 
 MIDDLEWARE = [
@@ -129,14 +129,11 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
-# Simplified static file serving.
-# https://warehouse.python.org/project/whitenoise/
-# STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 # Media files
-MEDIA_URL = '/media/'
+MEDIA_URL = "/media/"
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 
@@ -146,4 +143,5 @@ MARKDOWNIFY_BLEACH = False
 
 # Configure Django App for Heroku.
 import django_heroku
+
 django_heroku.settings(locals())
