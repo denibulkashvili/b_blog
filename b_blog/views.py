@@ -1,6 +1,5 @@
 """Basic project views"""
 from django.views.generic import TemplateView
-from posts.models import Post, Tag
 
 
 class HomePageView(TemplateView):

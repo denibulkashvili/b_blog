@@ -22,14 +22,14 @@ class PostDetailView(DetailView):  # pylint: disable=too-many-ancestors
         return context
 
 
-class TagListView(ListView):
+class TagListView(ListView):  # pylint:disable=too-many-ancestors
     """Creates tag list view"""
 
     model = Tag
     template_name = "posts/tag_list.html"
 
 
-class TagDetailView(DetailView):
+class TagDetailView(DetailView):  # pylint:disable=too-many-ancestors
     """Creates tag detail view"""
 
     model = Tag
