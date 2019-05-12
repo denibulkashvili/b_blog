@@ -4,7 +4,7 @@
 
 {% block content %}
   {% for tag in tag_list %}
-    <h3><a href="{% url 'posts:tag_detail' slug=tag.slug %}">{{ tag.name }}</a></h3>
+    <h3><a href="{% url 'posts:tag_detail' slug=tag.slug %}">#{{ tag.name }}</a></h3>
   {% empty %}
     <p>No tags yet.</p>
   {% endfor %}
