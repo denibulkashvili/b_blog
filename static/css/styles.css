@@ -1,8 +1,43 @@
 @font-face {
-  font-family: Walsheim;
-  src: url('../fonts/Walsheim.ttf'), format("truetype"), local(Walsheim);
+  font-family: "Walsheim";
+  src: url('../fonts/Walsheim.ttf');
 }
 
-* {
-  font-family: Walsheim;
+html {
+  font-family: "Walsheim", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
 }
+
+
+
+
+/* Custom settings
+:root {
+  --theme-orange: #ff6f00;
+  --theme-orange-light: #ffa040;
+  --theme-orange-dark: #c43e00;
+  --theme-orange-text: #000000;
+  --theme-black: #212020;
+  --theme-black-light: #484848;
+  --theme-black-dark: #000000;
+  --theme-black-text: #ffffff;
+  --theme-blue: #00e5ff;
+  --theme-blue-light: #6effff;
+  --theme-blue-dark: #00b2cc;
+  --theme-blue-text: #000000;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--theme-black);
+  color: var(--theme-black-text);
+}
+
+/* NAVBAR */
+/* 
+ul.nav {
+  list-style: none;
+} */ 

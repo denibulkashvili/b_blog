@@ -6,32 +6,54 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>&lt;b_blog&gt; {% block title %}{% endblock %} </title>
   {% load static %}
+  <!-- Materialize CSS -->
+  <link rel="stylesheet" href="{% static 'css/materialize.css' %}">
   <!-- My styles -->
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-  <!-- Foundation CSS -->
-  <link rel="stylesheet" href="{% static 'css/app.css' %}">
-  <link rel="stylesheet" href="{% static 'css/foundation.css' %}">
+  <!-- Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
   
-  <div class="top-bar">
-    <div class="top-bar-left">
-      <ul class="menu">
-        <li><a href="{% url 'home' %}">Home</a></li>
-        <li><a href="{% url 'posts:post_list' %}">Posts</a></li>
-        <li><a href="{% url 'posts:tag_list' %}">Tags</a></li>
-        <li><a href="{% url 'about' %}">About</a></li>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="{% url 'home' %}" class="brand-logo center">Logo</a>
+      <a href="" data-target="mobile-sidebar" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li class="nav-item"><a href="{% url 'home' %}">Home</a></li>
+        <li class="nav-item"><a href="{% url 'posts:post_list' %}">Posts</a></li>
+        <li class="nav-item"><a href="{% url 'posts:tag_list' %}">Tags</a></li>
+        <li class="nav-item"><a href="{% url 'about' %}">About</a></li>
       </ul>
     </div>
-    <div class="top-bar-right">Logo</div>
+  </nav>
+
+  <ul class="sidenav" id="mobile-sidebar">
+    <li><a href="sass.html">Sass</a></li>
+    <li><a href="badges.html">Components</a></li>
+    <li><a href="collapsible.html">Javascript</a></li>
+    <li><a href="mobile.html">Mobile</a></li>
+  </ul>
+
+  <div class="main-content row">
+    {% block content %}{% endblock %}
   </div>
+  
 
-  {% block content %}{% endblock %}
+  <!-- Materialize JavaScript -->
+  <script src="{% static 'js/materialize.js' %}" ></script>
+  <!-- JavaScript -->
+  <script src="{% static 'js/main.js' %}" ></script>
+  <script>
+    // Initialize mobile sidenav
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('.sidenav');
+      var instances = M.Sidenav.init(elems);
 
-  <!-- Foundation JavaScript -->
-  <script src="{% static 'js/app.js' %}" ></script>
-  <script src="{% static 'js/vendor/jquery.js' %}" ></script>
-  <script src="{% static 'js/vendor/what-input.js' %}" ></script>
-  <script src="{% static 'js/vendor/foundation.js' %}" ></script>
+      // Initialize collapsible 
+      var elems = document.querySelectorAll('.collapsible');
+      var instances = M.Collapsible.init(elems);
+    });
+  </script>
 </body>
 </html>
