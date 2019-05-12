@@ -6,20 +6,32 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>&lt;b_blog&gt; {% block title %}{% endblock %} </title>
   {% load static %}
+  <!-- My styles -->
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <!-- Foundation CSS -->
+  <link rel="stylesheet" href="{% static 'css/app.css' %}">
+  <link rel="stylesheet" href="{% static 'css/foundation.css' %}">
 </head>
 <body>
   
-  <nav>
-    <ul>
-      <li><a href="{% url 'home' %}">Home</a></li>
-      <li><a href="{% url 'posts:post_list' %}">Posts</a></li>
-      <li><a href="{% url 'posts:tag_list' %}">Tags</a></li>
-      <li><a href="{% url 'about' %}">About</a></li>
-    </ul>
-  </nav>
+  <div class="top-bar">
+    <div class="top-bar-left">
+      <ul class="menu">
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'posts:post_list' %}">Posts</a></li>
+        <li><a href="{% url 'posts:tag_list' %}">Tags</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
+      </ul>
+    </div>
+    <div class="top-bar-right">Logo</div>
+  </div>
 
   {% block content %}{% endblock %}
 
+  <!-- Foundation JavaScript -->
+  <script src="{% static 'js/app.js' %}" ></script>
+  <script src="{% static 'js/vendor/jquery.js' %}" ></script>
+  <script src="{% static 'js/vendor/what-input.js' %}" ></script>
+  <script src="{% static 'js/vendor/foundation.js' %}" ></script>
 </body>
 </html>
