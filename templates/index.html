@@ -4,6 +4,30 @@
 
 {% block content %}
   <div class="homepage">
-    
+
+    <div class="featured row">
+      <h2>Featured</h2>
+      {% for post in post_list %}
+        {% if post.is_featured %}
+          <div class="col s6">
+            <a href="{% url 'posts:post_detail' slug=post.slug %}">
+              <div class="card horizontal">
+                <div class="card-image">
+                  <img src="{{ post.cover_thumbnail.url }}" alt="{{ post.title }}">
+                  <span class="card-title">{{ post.title }}</span>
+                </div>
+                <div class="card-stacked">
+                  <div class="card-content">
+                    <p>{{ post.description }}</p>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        {% endif %}
+      {% empty %}
+      {% endfor %}
+    </div>
+
   </div>
 {% endblock %}

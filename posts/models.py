@@ -20,7 +20,7 @@ class Post(models.Model):
     cover = models.ImageField(upload_to="covers/", default="covers/default.jpg")
     cover_thumbnail = ImageSpecField(
         source="cover",
-        processors=[ResizeToFill(100, 50)],
+        processors=[ResizeToFill(400, 300)],
         format="JPEG",
         options={"quality": 60},
     )
