@@ -14,30 +14,32 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
+  <div class="wrapper">
+    <nav>
+      <div class="nav-wrapper ">
+        <a href="{% url 'home' %}" class="brand-logo right">Logo</a>
+        <a href="" data-target="mobile-sidebar" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+          <li class="nav-item"><a href="{% url 'home' %}">Home</a></li>
+          <li class="nav-item"><a href="{% url 'posts:post_list' %}">Posts</a></li>
+          <li class="nav-item"><a href="{% url 'posts:tag_list' %}">Tags</a></li>
+          <li class="nav-item"><a href="{% url 'about' %}">About</a></li>
+        </ul>
+      </div>
+    </nav>
   
-  <nav>
-    <div class="nav-wrapper">
-      <a href="{% url 'home' %}" class="brand-logo center">Logo</a>
-      <a href="" data-target="mobile-sidebar" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-      <ul id="nav-mobile" class="left hide-on-med-and-down">
-        <li class="nav-item"><a href="{% url 'home' %}">Home</a></li>
-        <li class="nav-item"><a href="{% url 'posts:post_list' %}">Posts</a></li>
-        <li class="nav-item"><a href="{% url 'posts:tag_list' %}">Tags</a></li>
-        <li class="nav-item"><a href="{% url 'about' %}">About</a></li>
-      </ul>
+    <ul class="sidenav" id="mobile-sidebar">
+      <li class="nav-item"><a href="{% url 'home' %}" class="deep-orange-text text-darken-1">Home</a></li>
+      <li class="nav-item"><a href="{% url 'posts:post_list' %}" class="deep-orange-text text-darken-1">Posts</a></li>
+      <li class="nav-item"><a href="{% url 'posts:tag_list' %}" class="deep-orange-text text-darken-1">Tags</a></li>
+      <li class="nav-item"><a href="{% url 'about' %}" class="deep-orange-text text-darken-1">About</a></li>
+    </ul>
+  
+    <div class="main-content container"">
+      {% block content %}{% endblock %}
     </div>
-  </nav>
-
-  <ul class="sidenav" id="mobile-sidebar">
-    <li><a href="sass.html">Sass</a></li>
-    <li><a href="badges.html">Components</a></li>
-    <li><a href="collapsible.html">Javascript</a></li>
-    <li><a href="mobile.html">Mobile</a></li>
-  </ul>
-
-  <div class="main-content row">
-    {% block content %}{% endblock %}
   </div>
+  
   
 
   <!-- Materialize JavaScript -->

@@ -1,3 +1,11 @@
+:root {
+  --main-dark: #212121;
+  --main-grey: #424242;
+  --secondary-orange: #f4511e;
+  --secondary-crimson: #dd2433;
+  --white-text: #ffffff;
+}
+
 @font-face {
   font-family: "Walsheim";
   src: url('../fonts/Walsheim.ttf');
@@ -7,8 +15,35 @@ html {
   font-family: "Walsheim", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
 }
 
+body {
+  min-height: 100vh;
+  background: var(--main-dark);
+  color: var(--white-text);
+}
+.wrapper {
+  min-height: 100%;
+}
 
+nav {
+  background: var(--secondary-orange);  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, var(--secondary-crimson), var(--secondary-orange));  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, var(--secondary-crimson), var(--secondary-orange)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
+}
+
+nav ul li a {
+  font-size: 150%;
+}
+.sidenav {
+  background: var(--main-dark);
+  color: var(--white-text);
+}
+.sidenav li a {
+  font-size: 150%;
+}
+.sidenav li a:hover {
+  background-color: var(--main-grey);
+}
 
 /* Custom settings
 :root {
