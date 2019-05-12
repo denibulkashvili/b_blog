@@ -20,7 +20,7 @@ class HomePageTests(TestCase):
     def test_home_page_contains_correct_header(self):
         """Tests if homepage contains b_blog heading"""
         response = self.client.get(reverse("home"))
-        self.assertContains(response, "<h1>b_blog")
+        self.assertContains(response, "b_blog")
 
     def homepage_displays_correct_post_title(self):
         """Tests if homepage contains title or rendered post"""
@@ -62,13 +62,13 @@ class PostDetailPageTests(TestCase):
 
     def test_post_detail_template(self):
         """Tests post detail view status code and template"""
-        response = self.client.get(f"/posts/id/{self.post.id}/")
+        response = self.client.get(f"/posts/read/{self.post.slug}/")
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "posts/post_detail.html")
 
     def test_post_detail_page_displays_post_details(self):
         """Tests if post detail view renders correct post details"""
-        response = self.client.get(f"/posts/id/{self.post.id}/")
+        response = self.client.get(f"/posts/read/{self.post.slug}/")
         self.assertContains(response, "Hello World")
         self.assertContains(response, "Descriptions: Test post")
         self.assertContains(response, "Content: This is a test post.")
@@ -79,7 +79,7 @@ class PostDetailPageTests(TestCase):
         tag2 = Tag.objects.create(name="tag 2")
         self.post.tags.add(tag1)
         self.post.tags.add(tag2)
-        response = self.client.get(f"/posts/id/{self.post.id}/")
+        response = self.client.get(f"/posts/read/{self.post.slug}/")
         self.assertContains(response, "tag 1")
         self.assertContains(response, "tag 2")
 
@@ -114,13 +114,13 @@ class TagDetailPageTests(TestCase):
 
     def test_tag_detail_template(self):
         """Tests tag detail view status code and template"""
-        response = self.client.get(f"/posts/tags/id/{self.tag.id}/")
+        response = self.client.get(f"/posts/tag/{self.tag.slug}/")
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "posts/tag_detail.html")
 
     def test_tag_detail_page_displays_tags(self):
         """Tests if tag detail view renders correct tag name"""
-        response = self.client.get(f"/posts/tags/id/{self.tag.id}/")
+        response = self.client.get(f"/posts/tag/{self.tag.slug}/")
         self.assertContains(response, "test tag")
 
     def test_tag_detail_view_diplays_related_posts(self):
@@ -129,7 +129,7 @@ class TagDetailPageTests(TestCase):
         post2 = Post.objects.create(title="Test related posts - Secondary post")
         post1.tags.add(self.tag)
         post2.tags.add(self.tag)
-        response = self.client.get(f"/posts/tags/id/{self.tag.id}/")
+        response = self.client.get(f"/posts/tag/{self.tag.slug}/")
         self.assertContains(response, "Main post")
         self.assertContains(response, "Secondary post")
 

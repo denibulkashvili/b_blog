@@ -6,14 +6,12 @@ import uuid
 
 class Migration(migrations.Migration):
 
-    dependencies = [
-        ('posts', '0009_post_slug'),
-    ]
+    dependencies = [("posts", "0009_post_slug")]
 
     operations = [
         migrations.AddField(
-            model_name='tag',
-            name='slug',
+            model_name="tag",
+            name="slug",
             field=models.SlugField(default=uuid.uuid1, unique=True),
-        ),
+        )
     ]

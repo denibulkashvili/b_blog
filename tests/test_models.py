@@ -15,7 +15,7 @@ class PostTestCase(TestCase):
 
     def test_get_absolute_url(self):
         """Tests get_absolute_url() method"""
-        self.assertEqual(self.post.get_absolute_url(), "/posts/id/1/")
+        self.assertEqual(self.post.get_absolute_url(), f"/posts/read/{self.post.slug}/")
 
     def test_title_field(self):
         """Tests title field in Post"""
