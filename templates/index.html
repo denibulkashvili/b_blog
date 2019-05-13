@@ -6,29 +6,28 @@
   <div class="homepage">
 
     <div class="featured row">
-      <h2 class="homepage-section-title">Featured <span>>></span></h2>
+      <h2 class="homepage-section-title white-text">Featured</h2>
       {% for post in post_list %}
         {% if post.is_featured %}
           <div class="col s6">
             <a href="{% url 'posts:post_detail' slug=post.slug %}">
-              <div class="card large hoverable">
+              <div class="card medium hoverable">
                 <div class="card-image waves-effect waves-block waves-light">
                   <img src="{{ post.cover.url }}" alt="{{ post.title }}">
-                  <span class="card-title deep-orange-text text-darken-1">{{ post.title }}</span>
+                  <span class="homepage-card-title card-title">
+                    <span class="homepage-card-title-text">{{ post.title }}</span>  
+                  </span>
                 </div>
-                <div class="card-content">
+                <div class="card-content homepage-card-content">
                     <p>
-                        <span class="homepage-post-date">{{ post.date_created }}</span>
-                        <span class="homepage-post-tags">
+                        <span class="homepage-post-date grey-text text-lighten-1">{{ post.date_created }}</span>
+                        <span class="homepage-post-tags teal-text text-accent-1 ">
                           {% for tag in post.tags.all %}
-                            #{{ tag.name }}
+                            <span class="new badge hoverable" data-badge-caption="">#{{ tag.name }}</span>
                           {% endfor %}
                         </span>
                     </p>
-                    <p>{{ post.description }}</p>
-                </div>
-                <div class="card-reveal deep-orange-text text-darken-1">
-                  <span class="card-title">{{ post.title }}<i class="material-icons right">close</i></span>
+                    <p class="grey-text text-lighten-5">{{ post.description }}</p>
                 </div>
               </div>
             </a>
@@ -39,7 +38,7 @@
     </div>
 
     <div class="latest-posts row">
-      <h2 class="homepage-section-title">Latest Posts <span>>></span></h2>
+      <h2 class="homepage-section-title white-text">Latest Posts</h2>
       {% for post in post_list %}
         <div class="col s12">
             <a href="{% url 'posts:post_detail' slug=post.slug %}">
@@ -50,7 +49,7 @@
                 </div>
                 <div class="card-stacked">
                   <div class="card-content">
-                    <p>{{ post.description }}</p>
+                    <p class="white-text">{{ post.description }}</p>
                   </div>
                 </div>
               </div>

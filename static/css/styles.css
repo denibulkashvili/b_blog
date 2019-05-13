@@ -1,9 +1,11 @@
 /* GENERAL */
 :root {
-  --main-dark: #212121;
-  --main-grey: #424242;
-  --secondary-orange: #f4511e;
+  --main-dark: #212121; /* grey darken-4 */
+  --main-grey: #424242; /* grey darken-3  */
+  --main-orange: #f4511e; /* deep-orange darken-1  */
   --secondary-crimson: #dd2433;
+  --secondary-teal: #a7ffeb; /* teal accent-1 */
+  --secondary-grey: #fafafa; /* grey lighten-5 */
   --white-text: #ffffff;
 }
 
@@ -14,7 +16,6 @@
 
 html {
   font-family: "Walsheim", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
-  transition: all 0.5s ease;
 }
 
 body {
@@ -29,9 +30,9 @@ body {
 }
 
 nav {
-  background: var(--secondary-orange);  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to left, var(--secondary-crimson), var(--secondary-orange));  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to left, var(--secondary-crimson), var(--secondary-orange)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: var(--main-orange);  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, var(--secondary-crimson), var(--main-orange));  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, var(--secondary-crimson), var(--main-orange)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 }
 
@@ -50,10 +51,22 @@ nav ul li a {
 }
 
 /* HOME TEMPLATE */
-.homepage-section-title span {
-  visibility: hidden;
+
+/* featured cards */
+.homepage-card-title {
+  transition: all 0.5s ease;
+  background: rgba(33, 33, 33, 0.6);
+  width: 100%;
+  color: var(--white-text)
 }
-.homepage-section-title:hover {
-  visibility: initial;
-  color: var(--secondary-crimson);
+.homepage-card-title:hover {
+  background: rgba(33, 33, 33, 0.8);
+  color: var(--main-orange);
+}
+.homepage-card-content {
+  background: var(--main-grey);
+  height: 100%;
+}
+.homepage-post-tags > a {
+  text-decoration: underline;
 }
