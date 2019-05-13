@@ -11,7 +11,7 @@
         {% if post.is_featured %}
           <div class="col s6">
             <a href="{% url 'posts:post_detail' slug=post.slug %}">
-              <div class="card medium hoverable">
+              <div class="card medium hoverable grey darken-3">
                 <div class="card-image waves-effect waves-block waves-light">
                   <img src="{{ post.cover.url }}" alt="{{ post.title }}">
                   <span class="homepage-card-title card-title">
@@ -21,13 +21,13 @@
                 <div class="card-content homepage-card-content">
                     <p>
                         <span class="homepage-post-date grey-text text-lighten-1">{{ post.date_created }}</span>
-                        <span class="homepage-post-tags teal-text text-accent-1 ">
+                        <span class="homepage-post-tags">
                           {% for tag in post.tags.all %}
                             <span class="new badge hoverable" data-badge-caption="">#{{ tag.name }}</span>
                           {% endfor %}
                         </span>
                     </p>
-                    <p class="grey-text text-lighten-5">{{ post.description }}</p>
+                    <p class="grey-text text-lighten-1">{{ post.description }}</p>
                 </div>
               </div>
             </a>

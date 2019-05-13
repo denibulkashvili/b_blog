@@ -63,10 +63,7 @@ nav ul li a {
   background: rgba(33, 33, 33, 0.8);
   color: var(--main-orange);
 }
-.homepage-card-content {
-  background: var(--main-grey);
-  height: 100%;
-}
+
 .homepage-post-tags > a {
   text-decoration: underline;
 }
