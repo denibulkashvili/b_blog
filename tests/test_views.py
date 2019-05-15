@@ -70,7 +70,6 @@ class PostDetailPageTests(TestCase):
         """Tests if post detail view renders correct post details"""
         response = self.client.get(f"/posts/read/{self.post.slug}/")
         self.assertContains(response, "Hello World")
-        self.assertContains(response, "Descriptions: Test post")
         self.assertContains(response, "Content: This is a test post.")
 
     def test_post_detail_view_displays_list_of_related_tags(self):
