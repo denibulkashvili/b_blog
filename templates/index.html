@@ -22,7 +22,9 @@
                         <span class="homepage-post-date grey-text text-darken-1">{{ post.date_created }}</span>
                         <span class="homepage-post-tags">
                           {% for tag in post.tags.all %}
-                            <span class="new badge hoverable deep-orange darken-1" data-badge-caption="">#{{ tag.name }}</span>
+                            <a href="{% url 'posts:tag_detail' slug=tag.slug %}">
+                              <span class="new badge hoverable deep-orange darken-1" data-badge-caption="">#{{ tag.name }}</span>
+                            </a>
                           {% endfor %}
                         </span>
                     </p>
