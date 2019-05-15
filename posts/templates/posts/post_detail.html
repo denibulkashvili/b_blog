@@ -16,12 +16,12 @@
         {% endfor %}
       </span>
     </div>
-    
+
     <div class="center-align">
       <img class="post-cover responsive-img" src="{{ post.cover.url }}" alt="{{ post.title }}">
     </div>
 
-    <div class="post-content">{{ post.content|markdownify  }}</div>
+    <div class="post-content flow-text">{{ post.content|markdownify  }}</div>
 
   </div>
 {% endblock %}

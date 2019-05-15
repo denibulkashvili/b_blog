@@ -90,6 +90,11 @@ nav ul li a {
   padding-top: 10px;
 }
 
+/* POST DETAIL  */
+
+.post-meta {
+  margin-bottom: 10px;
+}
 
 /* TAG LIST PAGE */
 .tag-list {
@@ -99,9 +104,5 @@ nav ul li a {
   width: 60%;
 }
 
+/* TAG DETAIL PAGE */
 
-/* POST DETAIL  */
-
-.post-meta {
-  margin-bottom: 10px;
-}
