@@ -4,15 +4,24 @@
 {% block title %} - {{ post.title }} {% endblock %}
 
 {% block content %}
-  <h3 class="post-title">{{ post.title }}</h3>
-  <img class="post-cover" src="{{ post.cover.url }}" alt="{{ post.title }}">
-  <ul>
-    {% for tag in post.tags.all %}
-      <li><a href="{% url 'posts:tag_detail' slug=tag.slug %}">#{{ tag.name }}</a></li>
-    {% empty %}
-      <li>No tags</li>
-    {% endfor %}
-  </ul>
-  <div class="post-description">{{ post.description }}</div>
-  <div class="post-content">{{ post.content|markdownify  }}</div>
+  <div class="container container-content">
+
+    <h3 class="post-title">{{ post.title }}</h3>
+
+    <div class="post-meta">
+      <span class="homepage-post-date grey-text text-darken-1">{{ post.date_created }}</span>
+      <span class="homepage-post-tags">
+        {% for tag in post.tags.all %}
+          <span class="new badge hoverable deep-orange darken-1" data-badge-caption="">#{{ tag.name }}</span>
+        {% endfor %}
+      </span>
+    </div>
+    
+    <div class="center-align">
+      <img class="post-cover responsive-img" src="{{ post.cover.url }}" alt="{{ post.title }}">
+    </div>
+
+    <div class="post-content">{{ post.content|markdownify  }}</div>
+
+  </div>
 {% endblock %}

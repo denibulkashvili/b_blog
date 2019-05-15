@@ -24,6 +24,20 @@ body {
   color: var(--white-text);
 }
 
+.container-content {
+  width: 85%;
+}
+@media only screen and (min-width: 601px) {
+  .container-content {
+    width: 75%;
+  }
+}
+@media only screen and (min-width: 993px) {
+  .container-content {
+    width: 55%;
+  }
+}
+
 /* BASE TEMPLATE */
 .wrapper {
   min-height: 100%;
@@ -83,4 +97,11 @@ nav ul li a {
 }
 .tag-list-item {
   width: 60%;
+}
+
+
+/* POST DETAIL  */
+
+.post-meta {
+  margin-bottom: 10px;
 }

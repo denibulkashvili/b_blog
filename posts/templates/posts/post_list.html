@@ -3,33 +3,39 @@
 {% block title %} - All Posts{% endblock %}
 
 {% block content %}
-<h2 class="white-text">All Posts</h2>
-{% for post in post_list %}
-  <div class="col s12">
-    <a href="{% url 'posts:post_detail' slug=post.slug %}">
-      <div class="card horizontal hoverable grey darken-3">
-        <div class="card-image">
-          <img src="{{ post.cover_thumbnail.url }}" alt="{{ post.title }}">
-        </div>
-        <div class="card-stacked">
-          <div class="card-content">
-            <p class="card-title latest-post-title white-text">
-              {{ post.title }}
-            </p>
-            <p>
-              <span class="homepage-post-date grey-text text-darken-1">{{ post.date_created }}</span>
-              <span class="homepage-post-tags">
-                {% for tag in post.tags.all %}
-                  <span class="new badge hoverable deep-orange darken-1" data-badge-caption="">#{{ tag.name }}</span>
-                {% endfor %}
-              </span>
-            </p>
-            <p class="grey-text text-lighten-1 post-description">{{ post.description }}</p>
+<div class="container container-content">
+
+  <h2 class="white-text">All Posts</h2>
+  
+  {% for post in post_list %}
+    <div class="col s12">
+      <a href="{% url 'posts:post_detail' slug=post.slug %}">
+        <div class="card horizontal hoverable grey darken-3">
+          <div class="card-image">
+            <img src="{{ post.cover_thumbnail.url }}" alt="{{ post.title }}">
+          </div>
+          <div class="card-stacked">
+            <div class="card-content">
+              <p class="card-title latest-post-title white-text">
+                {{ post.title }}
+              </p>
+              <p>
+                <span class="homepage-post-date grey-text text-darken-1">{{ post.date_created }}</span>
+                <span class="homepage-post-tags">
+                  {% for tag in post.tags.all %}
+                    <span class="new badge hoverable deep-orange darken-1" data-badge-caption="">#{{ tag.name }}</span>
+                  {% endfor %}
+                </span>
+              </p>
+              <p class="grey-text text-lighten-1 post-description">{{ post.description }}</p>
+            </div>
           </div>
         </div>
-      </div>
-    </a>
-  </div>
-{% empty %}
-{% endfor %}
+      </a>
+    </div>
+  {% empty %}
+  {% endfor %}
+</div>
+
+
 {% endblock %}

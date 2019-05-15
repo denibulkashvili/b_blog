@@ -3,7 +3,7 @@ from django.views.generic import TemplateView, ListView
 from posts.models import Post
 
 
-class HomePageView(ListView): #pylint:disable=too-many-ancestors
+class HomePageView(ListView):  # pylint:disable=too-many-ancestors
     """Creates Home page view"""
 
     model = Post

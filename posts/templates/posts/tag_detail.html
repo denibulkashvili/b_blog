@@ -4,6 +4,7 @@
 {% block title %} - Tag: {{ tag.name }} {% endblock %}
 
 {% block content %}
+<div class="container container-content">
   <h3 class="tag-name">#{{ tag.name }}</h3>
   <div class="tag-posts">
     {% for post in tag.posts.all %}
@@ -12,4 +13,5 @@
       <p>No related posts</p>
     {% endfor %}
   </div>
+</div>
 {% endblock %}

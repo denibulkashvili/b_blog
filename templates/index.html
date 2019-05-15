@@ -3,8 +3,7 @@
 {% block title %}- Home{% endblock %}
 
 {% block content %}
-  <div class="homepage">
-
+  <div class="container">
     <div class="featured row">
       <h2 class="homepage-section-title white-text">Featured</h2>
       {% for post in post_list %}
@@ -13,7 +12,7 @@
             <a href="{% url 'posts:post_detail' slug=post.slug %}">
               <div class="card medium hoverable grey darken-3">
                 <div class="card-image waves-effect waves-block waves-light">
-                  <img src="{{ post.cover.url }}" alt="{{ post.title }}">
+                  <img class="responsive-img" src="{{ post.cover.url }}" alt="{{ post.title }}">
                   <span class="homepage-card-title card-title">
                     {{ post.title }}
                   </span>
@@ -44,7 +43,7 @@
             <a href="{% url 'posts:post_detail' slug=post.slug %}">
               <div class="card horizontal hoverable grey darken-3">
                 <div class="card-image">
-                  <img src="{{ post.cover_thumbnail.url }}" alt="{{ post.title }}">
+                  <img class="responsive-img" src="{{ post.cover_thumbnail.url }}" alt="{{ post.title }}">
                 </div>
                 <div class="card-stacked">
                   <div class="card-content">

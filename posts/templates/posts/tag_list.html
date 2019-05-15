@@ -3,6 +3,7 @@
 {% block title %} - All Tags{% endblock %}
 
 {% block content %}
+<div class="container container-content">
   <h2 class="white-text">All Tags</h2>
   <div class="collection tag-list">
     {% for tag in tag_list %}
@@ -14,4 +15,5 @@
       <p>No tags yet.</p>
   </div>
   {% endfor %}
+</div>
 {% endblock %}
