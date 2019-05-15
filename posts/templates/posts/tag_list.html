@@ -3,9 +3,15 @@
 {% block title %} - All Tags{% endblock %}
 
 {% block content %}
-  {% for tag in tag_list %}
-    <h3><a href="{% url 'posts:tag_detail' slug=tag.slug %}">#{{ tag.name }}</a></h3>
-  {% empty %}
-    <p>No tags yet.</p>
+  <h2 class="white-text">All Tags</h2>
+  <div class="collection tag-list">
+    {% for tag in tag_list %}
+      <a href="{% url 'posts:tag_detail' slug=tag.slug %}" class="collection-item tag-list-item grey darken-3 white-text">
+        #{{ tag.name }}
+        <span class="new badge hoverable deep-orange darken-1" data-badge-caption="posts">{{ tag.posts.all.count }}</span>
+      </a>
+    {% empty %}
+      <p>No tags yet.</p>
+  </div>
   {% endfor %}
 {% endblock %}

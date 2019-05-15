@@ -67,3 +67,20 @@ nav ul li a {
 .homepage-post-tags > a {
   text-decoration: underline;
 }
+
+.latest-post-title > a {
+  color: var(--white-text);
+}
+
+.post-description {
+  padding-top: 10px;
+}
+
+
+/* TAG LIST PAGE */
+.tag-list {
+  border: none;
+}
+.tag-list-item {
+  width: 60%;
+}
