@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load markdownify %}
+{% load pygmentify_tags %}
 
 {% block title %} - {{ post.title }} {% endblock %}
 
@@ -22,8 +23,9 @@
     <div class="center-align">
       <img class="post-cover responsive-img" src="{{ post.cover.url }}" alt="{{ post.title }}">
     </div>
-
-    <div class="post-content flow-text">{{ post.content|markdownify  }}</div>
+    {% pygmentify %}
+    <div class="post-content">{{ post.content|markdownify  }}</div>
+    {% endpygmentify %}
 
   </div>
 {% endblock %}

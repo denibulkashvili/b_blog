@@ -5,6 +5,7 @@
   --main-orange: #f4511e; /* deep-orange darken-1  */
   --secondary-crimson: #dd2433;
   --secondary-teal: #a7ffeb; /* teal accent-1 */
+  --secondary-night-sky: #011627;
   --secondary-grey: #fafafa; /* grey lighten-5 */
   --white-text: #ffffff;
 }
@@ -94,6 +95,14 @@ nav ul li a {
 
 .post-meta {
   margin-bottom: 10px;
+}
+.post-content pre {
+  background: var(--secondary-night-sky);
+  padding: 20px;
+  border-radius: 20px;
+}
+.post-content code {
+  background: var(--main-grey);
 }
 
 /* TAG LIST PAGE */

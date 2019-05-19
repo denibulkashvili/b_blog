@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     "posts",
     "imagekit",
     "markdownify",
+    "pygmentify",
 ]
 
 MIDDLEWARE = [
