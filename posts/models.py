@@ -4,8 +4,8 @@ from datetime import date
 from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
-from imagekit.models import ImageSpecField
-from imagekit.processors import ResizeToFill
+# from imagekit.models import ImageSpecField
+# from imagekit.processors import ResizeToFill
 
 # Create your models here.
 class Post(models.Model):
@@ -18,12 +18,12 @@ class Post(models.Model):
     date_created = models.DateField(default=date.today)
     is_featured = models.BooleanField(default=False)
     cover = models.ImageField(upload_to="covers/", default="covers/default.jpg")
-    cover_thumbnail = ImageSpecField(
-        source="cover",
-        processors=[ResizeToFill(240, 180)],
-        format="JPEG",
-        options={"quality": 60},
-    )
+    # cover_thumbnail = ImageSpecField(
+    #     source="cover",
+    #     processors=[ResizeToFill(240, 180)],
+    #     format="JPEG",
+    #     options={"quality": 60},
+    # )
     slug = models.SlugField(unique=True, default=uuid.uuid1)
 
     # pylint: disable=missing-docstring

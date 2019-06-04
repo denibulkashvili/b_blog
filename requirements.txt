@@ -5,6 +5,8 @@ attrs==19.1.0
 beautifulsoup4==4.7.1
 black==19.3b0
 bleach==3.1.0
+boto3==1.9.160
+botocore==1.12.160
 certifi==2019.3.9
 cffi==1.12.3
 Click==7.0
@@ -16,13 +18,15 @@ Django==2.2.1
 django-appconf==1.0.3
 django-environ==0.4.5
 django-heroku==0.3.1
-django-imagekit==4.0.2
 django-markdownify==0.8.0
 django-pygmentify==0.3.7
+django-storages==1.7.1
+docutils==0.14
 gunicorn==19.9.0
 houdini.py==0.1.0
 idna==2.8
 isort==4.3.18
+jmespath==0.9.4
 lazy-object-proxy==1.4.0
 Markdown==3.1
 mccabe==0.6.1
@@ -37,7 +41,9 @@ pylint-django==2.0.9
 pylint-plugin-utils==0.5
 pyOpenSSL==19.0.0
 PySocks==1.6.8
+python-dateutil==2.8.0
 pytz==2019.1
+s3transfer==0.2.0
 selenium==3.141.0
 six==1.12.0
 soupsieve==1.9.1

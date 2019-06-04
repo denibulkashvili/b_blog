@@ -12,7 +12,7 @@
       <a href="{% url 'posts:post_detail' slug=post.slug %}">
         <div class="card horizontal hoverable grey darken-3">
           <div class="card-image">
-            <img src="{{ post.cover_thumbnail.url }}" alt="{{ post.title }}">
+            <img src="{{ post.cover.url }}" alt="{{ post.title }}">
           </div>
           <div class="card-stacked">
             <div class="card-content">

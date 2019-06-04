@@ -51,9 +51,10 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "posts",
-    "imagekit",
+    # "imagekit",
     "markdownify",
     "pygmentify",
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -145,3 +146,16 @@ MARKDOWNIFY_BLEACH = False
 
 # Configure Django App for Heroku.
 django_heroku.settings(locals())
+
+# Apply only in production
+DOTENV_FILE = os.path.join(BASE_DIR, "b_blog/.env")
+if not os.path.isfile(DOTENV_FILE):
+    # AWS S3 settings
+    AWS_ACCESS_KEY_ID = env("AWS_ACCESS_KEY_ID")
+    AWS_SECRET_ACCESS_KEY = env("AWS_SECRET_ACCESS_KEY")
+    S3_BUCKET_NAME = env("S3_BUCKET_NAME")
+
+    AWS_S3_FILE_OVERWRITE = False
+    AWS_DEFAULT_ACL = None
+
+    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
