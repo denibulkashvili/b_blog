@@ -11,13 +11,16 @@ from django.utils.text import slugify
 class Post(models.Model):
     """Creates a Post model"""
 
-    title = models.CharField(max_length=200, verbose_name="post_title")
+    title = models.CharField(max_length=200, verbose_name="post title")
     description = models.TextField(default="", max_length=260)
     content = models.TextField(blank=True, default="")
     tags = models.ManyToManyField("Tag", related_name="posts")
     date_created = models.DateField(default=date.today)
     is_featured = models.BooleanField(default=False)
     cover = models.ImageField(upload_to="covers/", default="covers/default.jpg")
+    cover_source = models.CharField(max_length=1000, verbose_name="cover image source", default="")
+    cover_author = models.CharField(max_length=200, verbose_name="cover image author", default="Unknown")
+    cover_caption = models.CharField(max_length=200, verbose_name="cover image caption", default="Photo")
     # cover_thumbnail = ImageSpecField(
     #     source="cover",
     #     processors=[ResizeToFill(240, 180)],

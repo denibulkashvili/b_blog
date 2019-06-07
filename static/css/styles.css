@@ -94,6 +94,11 @@ nav ul li a {
 
 /* POST DETAIL  */
 
+.post-cover-caption {
+  font-style: italic;
+  margin: 0; 
+}
+
 .post-meta {
   margin-bottom: 10px;
 }
