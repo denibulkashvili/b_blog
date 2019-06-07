@@ -116,3 +116,10 @@ nav ul li a {
 
 /* TAG DETAIL PAGE */
 
+
+
+/* Override pygmentify styles */
+
+.err {
+  border: none;
+}
