@@ -8,7 +8,7 @@
       <h2 class="homepage-section-title white-text">Featured</h2>
       {% for post in post_list %}
         {% if post.is_featured %}
-          <div class="col s6">
+          <div class="col s12 l6">
             <a href="{% url 'posts:post_detail' slug=post.slug %}">
               <div class="card medium hoverable grey darken-3">
                 <div class="card-image waves-effect waves-block waves-light">
@@ -44,6 +44,7 @@
         <div class="col s12">
             <a href="{% url 'posts:post_detail' slug=post.slug %}">
               <div class="card horizontal hoverable grey darken-3">
+                
                 <div class="card-image">
                   <img class="responsive-img" src="{{ post.cover.url }}" alt="{{ post.title }}">
                 </div>

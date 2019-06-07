@@ -83,12 +83,13 @@ nav ul li a {
   text-decoration: underline;
 }
 
-.latest-post-title > a {
-  color: var(--white-text);
-}
-
 .post-description {
   padding-top: 10px;
+}
+
+/* Latest posts */
+.latest-post-title > a {
+  color: var(--white-text);
 }
 
 /* POST DETAIL  */
