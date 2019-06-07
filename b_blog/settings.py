@@ -143,6 +143,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 # Mardownify settings
 MARKDOWNIFY_BLEACH = False
 
+# Pygmentify settings
+PYGMENTIFY = {
+    'style': 'monokai',
+    'cssclass': 'highlight'
+}
+
 
 # Configure Django App for Heroku.
 django_heroku.settings(locals())
