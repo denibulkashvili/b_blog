@@ -12,7 +12,7 @@ class Post(models.Model):
     """Creates a Post model"""
 
     title = models.CharField(max_length=200, verbose_name="post_title")
-    description = models.TextField(default="", max_length=600)
+    description = models.TextField(default="", max_length=260)
     content = models.TextField(blank=True, default="")
     tags = models.ManyToManyField("Tag", related_name="posts")
     date_created = models.DateField(default=date.today)
