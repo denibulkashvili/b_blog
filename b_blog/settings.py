@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     "markdownify",
     "pygmentify",
     'storages',
+    'analytical',
 ]
 
 MIDDLEWARE = [
@@ -166,3 +167,7 @@ if not os.path.isfile(DOTENV_FILE):
 
     DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
     STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+
+# django-analytical settings
+GOOGLE_ANALYTICS_PROPERTY_ID = 'UA-141696759-1'

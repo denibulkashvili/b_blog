@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>&lt;b_blog&gt; {% block title %}{% endblock %} </title>
   {% load static %}
+  {% load analytical %}
   <!-- Materialize CSS -->
   <link rel="stylesheet" href="{% static 'css/materialize.css' %}">
   <!-- Icons -->
@@ -14,6 +15,7 @@
   <link rel="stylesheet" href="{% pygmentify_css %}">
   <!-- My styles -->
   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  {% analytical_head_top %}{% analytical_head_bottom %}
 </head>
 <body>
   <div class="wrapper">
