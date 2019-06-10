@@ -22,8 +22,8 @@
 
     <div class="center-align">
       <img class="post-cover responsive-img" src="{{ post.cover.url }}" alt="{{ post.title }}">
-      {% if post.cover_source or post.cover_author != "Unknown" %}
-        <span class="post-cover-caption">{{ post.cover_caption }}</span> by <a href="{{ post.cover_source }}">{{ post.cover_author }}</a>
+      {% if post.cover_source or post.cover_author %}
+        <p><span class="post-cover-caption">{{ post.cover_caption }}</span> by <a href="{{ post.cover_source }}">{{ post.cover_author }}</a></p>
       {% endif %}
     </div>
     {% pygmentify %}

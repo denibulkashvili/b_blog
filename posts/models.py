@@ -18,9 +18,9 @@ class Post(models.Model):
     date_created = models.DateField(default=date.today)
     is_featured = models.BooleanField(default=False)
     cover = models.ImageField(upload_to="covers/", default="covers/default.jpg")
-    cover_source = models.CharField(max_length=1000, verbose_name="cover image source", default="")
-    cover_author = models.CharField(max_length=200, verbose_name="cover image author", default="Unknown")
-    cover_caption = models.CharField(max_length=200, verbose_name="cover image caption", default="Photo")
+    cover_source = models.CharField(max_length=1000, verbose_name="cover image source", default="", blank=True)
+    cover_author = models.CharField(max_length=200, verbose_name="cover image author", default="Unknown", blank=True)
+    cover_caption = models.CharField(max_length=200, verbose_name="cover image caption", default="Photo", blank=True)
     # cover_thumbnail = ImageSpecField(
     #     source="cover",
     #     processors=[ResizeToFill(240, 180)],
