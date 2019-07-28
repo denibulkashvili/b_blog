@@ -110,6 +110,10 @@ nav ul li a {
 .post-content code {
   background: var(--main-grey);
 }
+.post-content img {
+  max-width: 100%;
+  height: auto;
+}
 
 /* TAG LIST PAGE */
 .tag-list {
