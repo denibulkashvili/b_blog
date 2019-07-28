@@ -10,7 +10,7 @@
   {% for post in post_list %}
     <div class="col s12">
       <a href="{% url 'posts:post_detail' slug=post.slug %}">
-        <div class="card horizontal hoverable grey darken-3">
+        <div class="card hoverable grey darken-3">
           <div class="card-image">
             <img class="responsive-img" src="{{ post.cover.url }}" alt="{{ post.title }}">
           </div>
